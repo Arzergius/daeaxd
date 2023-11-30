@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node.js
+node_modules/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.app
+*.exe
+*.dll
+*.ncb
+*.sdf
+*.opensdf
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+_ReSharper*/
+*.ReSharper*/
+*.suo
+*.user
+_ReSharper*/
+_ReSharper.Cache
+_ReSharper.Lucene
+
+# Redis
+*.rdb
+
+# PostgreSQL
+*.sql
+
+# Visual Studio Code
+.vscode/
+
+# Flask
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+*.log.*
+logs/
+
+# Virtual Environment
+venv/
+env/
+
+# Datos
+data/
+data20m/

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Ratings</title>
+</head>
+<body>
+    <h1>View Ratings</h1>
+    <table border="1">
+        <tr>
+            <th>User ID</th>
+            <th>Movie ID</th>
+            <th>Rating</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for rating in ratings_data.items %}
+            <tr>
+                <td>{{ rating.userid }}</td>
+                <td>{{ rating.movieId }}</td>
+                <td>{{ rating.rating }}</td>
+                <td>{{ rating.timestamp }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if ratings_data.has_prev %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ ratings_data.prev_num }}">previous</a>
+            {% endif %}
+
+            {% for page_num in ratings_data.iter_pages() %}
+                {% if page_num %}
+                    {% if page_num == ratings_data.page %}
+                        <span class="current">{{ page_num }}</span>
+                    {% else %}
+                        <a href="?page={{ page_num }}">{{ page_num }}</a>
+                    {% endif %}
+                {% else %}
+                    <span class="ellipsis">...</span>
+                {% endif %}
+            {% endfor %}
+
+            {% if ratings_data.has_next %}
+                <a href="?page={{ ratings_data.next_num }}">next</a>
+                <a href="?page={{ ratings_data.pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
